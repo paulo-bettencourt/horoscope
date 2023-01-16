@@ -1,3 +1,6 @@
+<h1 class="mb-4 text-center">Predict your future and discover your past</h1>
+<img src="../../../assets/sun.png" alt="" class="sun">
+<form>
 <select class="form-select" aria-label="Default select example">
   <option selected>Select your sign</option>
   <option value="aries">Aries</option>
@@ -21,8 +24,7 @@
   <option value="tomorrow">Tomorrow</option>
 </select>
 
-
-
 <div class="d-grid gap-2">
-  <button type="button" class="btn btn-secondary btn-lg mt-3">I'm ready for the truth</button>
+  <button data-bs-toggle="modal" data-bs-target="#exampleModal" type="button" class="btn btn-secondary btn-lg mt-3" (click)="onSubmit()">I'm ready for the truth</button>
 </div>
+</form>
