@@ -9,6 +9,7 @@ import {RouterModule, Routes} from "@angular/router";
 
 @NgModule({
   declarations: [
+    PresentationComponent
   ],
   imports: [
     CommonModule

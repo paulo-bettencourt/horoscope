@@ -1,7 +1,11 @@
-<h1 class="mb-4 text-center">Predict your future and discover your past</h1>
+<h1 class="mb-4 text-center">Predict your future and unveil your past</h1>
 <img src="../../../assets/sun.png" alt="" class="sun">
 <form>
-<select class="form-select" aria-label="Default select example">
+<select class="form-select" aria-label="Default select example"
+        formControlName="horoscope"
+        (change)="onChangeSign($event)"
+        required
+>
   <option selected>Select your sign</option>
   <option value="aries">Aries</option>
   <option value="taurus">Taurus</option>
@@ -17,7 +21,11 @@
   <option value="pisces">Pisces</option>
 </select>
 
-<select class="form-select mt-3" aria-label="Default select example">
+<select class="form-select mt-3"
+        aria-label="Default select example"
+        formControlName="day"
+        (change)="onChangeDay($event)"
+        required>
   <option selected>Select the day's reading</option>
   <option value="today">Today</option>
   <option value="yesterday">Yesterday</option>
