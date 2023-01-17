@@ -2,9 +2,6 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Horoscope} from "../interface/horoscope.interface";
 import {Observable, Subject} from "rxjs";
-import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
-
-
 
 @Injectable({
   providedIn: 'root'

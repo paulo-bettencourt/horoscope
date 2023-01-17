@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import {ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot} from "@angular/router";
-import {first, firstValueFrom, Observable} from "rxjs";
+import {Observable} from "rxjs";
 import {Horoscope} from "../interface/horoscope.interface";
 import {ApiService} from "../services/api.service";
 
