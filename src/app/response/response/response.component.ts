@@ -1,10 +1,6 @@
-import {AfterContentChecked, AfterViewInit, Component, HostListener, OnDestroy} from '@angular/core';
-import {Observable, Subject} from "rxjs";
+import {Component, HostListener} from '@angular/core';
 import {Horoscope} from "../../interface/horoscope.interface";
-import {ApiService} from "../../services/api.service";
 import {ActivatedRoute, Data} from "@angular/router";
-
-
 
 @Component({
   selector: 'app-response',
