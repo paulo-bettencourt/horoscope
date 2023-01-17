@@ -1,8 +1,10 @@
-import {AfterContentChecked, AfterViewInit, Component} from '@angular/core';
+import {AfterContentChecked, AfterViewInit, Component, HostListener, OnDestroy} from '@angular/core';
 import {Observable, Subject} from "rxjs";
 import {Horoscope} from "../../interface/horoscope.interface";
 import {ApiService} from "../../services/api.service";
 import {ActivatedRoute, Data} from "@angular/router";
+
+
 
 @Component({
   selector: 'app-response',
@@ -22,8 +24,13 @@ export class ResponseComponent {
     lucky_time: ''
   }
 
-  constructor(private activatedRoute: ActivatedRoute, private service: ApiService) {
-    this.activatedRoute.data.subscribe(( signData: Data ) => this.horoscopeData = signData['sign'] as Horoscope)
+  constructor(private activatedRoute: ActivatedRoute) {
+    this.activatedRoute.data.subscribe(( signData: Data ) => this.horoscopeData = signData['sign'] as Horoscope);
+  }
+
+  @HostListener('window:beforeunload')
+  async ngOnDestroy() {
+    localStorage.removeItem('horoscope')
   }
 
 }

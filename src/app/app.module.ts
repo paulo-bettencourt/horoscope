@@ -8,7 +8,6 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {PresentationModule} from "./presentation/presentation.module";
 import {ResponseModule} from "./response/response.module";
-import {PresentationComponent} from "./presentation/presentation/presentation.component";
 
 @NgModule({
   declarations: [
@@ -24,7 +23,6 @@ import {PresentationComponent} from "./presentation/presentation/presentation.co
     PresentationModule,
     ResponseModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
