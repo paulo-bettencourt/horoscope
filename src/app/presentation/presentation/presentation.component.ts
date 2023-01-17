@@ -25,11 +25,13 @@ export class PresentationComponent {
   onChangeSign(event: Event) {
     // @ts-ignore
     this.resolver.sign = event.target.value as string;
+    this.form.controls['sign'].setValue(this.resolver.sign)
   }
 
   onChangeDay(event: Event) {
     // @ts-ignore
     this.resolver.day = event.target.value as string;
+    this.form.controls['day'].setValue(this.resolver.day)
   }
 
   onSubmit() {

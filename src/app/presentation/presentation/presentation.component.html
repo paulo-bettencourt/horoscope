@@ -32,7 +32,7 @@
 </select>
 
 <div class="d-grid gap-2">
-  <button data-bs-toggle="modal" data-bs-target="#exampleModal" type="button" class="btn btn-secondary btn-lg mt-3" (click)="onSubmit()">I'm ready for the truth</button>
+  <button data-bs-toggle="modal" data-bs-target="#exampleModal" type="button" class="btn btn-secondary btn-lg mt-3" [disabled]="!form.controls['sign'].value || !form.controls['day'].value" (click)="onSubmit()">I'm ready for the truth</button>
 </div>
 </form>
 
