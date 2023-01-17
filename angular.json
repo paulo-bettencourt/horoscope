@@ -50,6 +50,8 @@
               ],
               "outputHashing": "all"
             },
+            "optimization": { "scripts": true, "styles": { "minify": true, "inlineCritical": false } },
+
             "development": {
               "buildOptimizer": false,
               "optimization": false,
