@@ -19,29 +19,20 @@ export class PresentationComponent {
     sign: ['', [Validators.required]],
     day: ['', [Validators.required]]
   })
-  signData = '';
-  dayData = '';
 
-  constructor(private route: Router, private fb: FormBuilder, private service: ApiService) {}
+  constructor(private route: Router, private fb: FormBuilder, private service: ApiService, private resolver: SignResolver) {}
 
   onChangeSign(event: Event) {
     // @ts-ignore
-
-    // @ts-ignore
-    this.signData = event.target.value;
-    console.log("INICIO", this.signData)
+    this.resolver.sign = event.target.value as string;
   }
 
   onChangeDay(event: Event) {
-    console.log("INICIO", this.dayData)
     // @ts-ignore
-    this.dayData = event.target.value;
+    this.resolver.day = event.target.value as string;
   }
 
   onSubmit() {
-    console.log("INICIO", this.signData)
-    this.service.sign$ = this.signData;
-    this.service.day$ = this.dayData;
     this.route.navigate(['response'])
   }
 

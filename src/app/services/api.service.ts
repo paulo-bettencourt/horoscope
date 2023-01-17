@@ -13,9 +13,12 @@ export class ApiService {
 
   httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type':  'application/json',
-    })
+      accept: '*/*',
+      contentType: 'application/x-www-form-urlencoded',
+    }),
+    responseType: 'text',
   };
+
   private _sign$ = new Subject();
   private _day$ = new Subject();
 
@@ -24,6 +27,7 @@ export class ApiService {
   }
 
   getHoroscopeData(sign: string, day: string): Observable<Horoscope> {
+    console.log("1st request", sign, day)
     return this.http.post<Horoscope>(`https://aztro.sameerkumar.website/?sign=${sign}&day=${day}`,  this.httpOptions)
   }
 
