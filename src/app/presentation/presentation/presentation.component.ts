@@ -6,6 +6,7 @@ import {Router} from "@angular/router";
 import {HttpHeaders} from "@angular/common/http";
 import {FormBuilder, Validator} from "@angular/forms";
 import { Validators } from "@angular/forms";
+import {SignResolver} from "../../resolve/sign.resolve";
 
 @Component({
   selector: 'app-presentation',
@@ -18,21 +19,29 @@ export class PresentationComponent {
     sign: ['', [Validators.required]],
     day: ['', [Validators.required]]
   })
+  signData = '';
+  dayData = '';
 
-  constructor(private route: Router, private fb: FormBuilder) {
-  }
+  constructor(private route: Router, private fb: FormBuilder, private service: ApiService) {}
 
   onChangeSign(event: Event) {
     // @ts-ignore
-    this.form.controls['sign'].setValue(event.target.value);
+
+    // @ts-ignore
+    this.signData = event.target.value;
+    console.log("INICIO", this.signData)
   }
 
   onChangeDay(event: Event) {
+    console.log("INICIO", this.dayData)
     // @ts-ignore
-    this.form.controls['day'].setValue(event.target.value);
+    this.dayData = event.target.value;
   }
 
   onSubmit() {
+    console.log("INICIO", this.signData)
+    this.service.sign$ = this.signData;
+    this.service.day$ = this.dayData;
     this.route.navigate(['response'])
   }
 

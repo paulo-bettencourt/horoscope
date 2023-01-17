@@ -7,13 +7,42 @@ import {ApiService} from "../services/api.service";
 @Injectable({ providedIn: 'root' })
 export class SignResolver implements Resolve<Horoscope> {
 
-  constructor(private service: ApiService) {}
+  sign = '';
+  day = '';
+
+  constructor(private service: ApiService) {
+
+    console.log("resolve")
+  this.getSignAndDay();
+  }
 
   resolve(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<Horoscope>|Promise<Horoscope>|Horoscope {
-    return this.service.getHoroscopeData();
+    console.log("assadfasdfasdfasdf sign", this.sign)
+
+    this.service.sign$.subscribe(
+      async (x) => {
+        console.log('Observer got a next value: ' + x)
+        this.sign = await x;
+      },
+    )
+
+    this.service.day$.subscribe(
+      async (x) => {
+        console.log('Observer got a next value: ' + x)
+        this.day = await x;
+      },
+    )
+
+    console.log("DIA", this.sign, this.day)
+    return this.service.getHoroscopeData(this.sign, this.day);
+
+  }
+
+
+  private getSignAndDay() {
 
   }
 }

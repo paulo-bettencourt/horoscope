@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {AfterContentChecked, AfterViewInit, Component} from '@angular/core';
 import {Observable, Subject} from "rxjs";
 import {Horoscope} from "../../interface/horoscope.interface";
 import {ApiService} from "../../services/api.service";
@@ -21,12 +21,15 @@ export class ResponseComponent {
     lucky_number: '',
     lucky_time: ''
   }
+  sign = '';
 
-  constructor(private activatedRoute: ActivatedRoute) {
+  constructor(private activatedRoute: ActivatedRoute, private service: ApiService) {
+
     this.activatedRoute.data.subscribe(( signData: Data ) => {
       console.log("AQUI TÁ", signData['sign'] as Horoscope)
       this.horoscopeData = signData['sign'] as Horoscope;
      })
+
   }
 
 }

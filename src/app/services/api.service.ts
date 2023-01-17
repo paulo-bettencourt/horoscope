@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Horoscope} from "../interface/horoscope.interface";
-import {Observable} from "rxjs";
+import {Observable, Subject} from "rxjs";
 import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 
 
@@ -16,11 +16,31 @@ export class ApiService {
       'Content-Type':  'application/json',
     })
   };
+  private _sign$ = new Subject();
+  private _day$ = new Subject();
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    console.log("serviço")
+  }
 
-  getHoroscopeData(): Observable<Horoscope> {
-    return this.http.post<Horoscope>('https://aztro.sameerkumar.website/?sign=virgo&day=today',  this.httpOptions)
+  getHoroscopeData(sign: string, day: string): Observable<Horoscope> {
+    return this.http.post<Horoscope>(`https://aztro.sameerkumar.website/?sign=${sign}&day=${day}`,  this.httpOptions)
+  }
+
+  get sign$(): Subject<any> {
+    return this._sign$;
+  }
+
+  set sign$(value: any) {
+    this._sign$.next(value);
+  }
+
+  get day$(): Subject<any> {
+    return this._day$;
+  }
+
+  set day$(value: any) {
+    this._day$.next(value);
   }
 
 }

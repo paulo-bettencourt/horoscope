@@ -4,7 +4,6 @@
 <select class="form-select" aria-label="Default select example"
         formControlName="horoscope"
         (change)="onChangeSign($event)"
-        required
 >
   <option selected>Select your sign</option>
   <option value="aries">Aries</option>
@@ -25,7 +24,7 @@
         aria-label="Default select example"
         formControlName="day"
         (change)="onChangeDay($event)"
-        required>
+        >
   <option selected>Select the day's reading</option>
   <option value="today">Today</option>
   <option value="yesterday">Yesterday</option>
