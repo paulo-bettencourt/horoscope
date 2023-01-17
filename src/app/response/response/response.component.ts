@@ -21,15 +21,9 @@ export class ResponseComponent {
     lucky_number: '',
     lucky_time: ''
   }
-  sign = '';
 
   constructor(private activatedRoute: ActivatedRoute, private service: ApiService) {
-
-    this.activatedRoute.data.subscribe(( signData: Data ) => {
-      console.log("AQUI TÁ", signData['sign'] as Horoscope)
-      this.horoscopeData = signData['sign'] as Horoscope;
-     })
-
+    this.activatedRoute.data.subscribe(( signData: Data ) => this.horoscopeData = signData['sign'] as Horoscope)
   }
 
 }

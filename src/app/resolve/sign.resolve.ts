@@ -7,8 +7,8 @@ import {ApiService} from "../services/api.service";
 @Injectable({ providedIn: 'root' })
 export class SignResolver implements Resolve<Horoscope> {
 
-  sign = '';
-  day = '';
+  sign!: string;
+  day!: string;
 
   constructor(private service: ApiService) {}
 
@@ -16,10 +16,7 @@ export class SignResolver implements Resolve<Horoscope> {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<Horoscope> | Promise<Horoscope> | Horoscope {
-
     return this.service.getHoroscopeData(this.sign, this.day);
   }
-
-
 
 }
